@@ -10,7 +10,14 @@ dependencies = [
     "pillow>=11.3.0",
     "scipy>=1.15.3",
     "streamlit>=1.48.1",
-    "torch>=2.8.0",
-    "torchvision>=0.23.0",
+    "torch>=2.8.0+cpu",
+    "torchvision>=0.23.0+cpu",
     "plotly>=5.18.0",
 ]
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/ai-vision-explorer"
+"Bug Tracker" = "https://github.com/yourusername/ai-vision-explorer/issues"
+
+[tool.uv]
+index-url = "https://download.pytorch.org/whl/cpu"

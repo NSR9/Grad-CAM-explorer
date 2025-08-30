@@ -420,7 +420,7 @@ def create_prediction_chart(top5_idx, top5_val, classes):
     fig.add_trace(go.Bar(
         x=[classes[idx] for idx in top5_idx],
         y=top5_val,
-        marker_color='rgba(99, 102, 241, 0.8)',
+        marker_color='rgba(139, 92, 246, 0.8)',
         text=[f'{val:.3f}' for val in top5_val],
         textposition='auto',
         name='Confidence'
@@ -430,12 +430,19 @@ def create_prediction_chart(top5_idx, top5_val, classes):
         title="Top-5 Predictions",
         xaxis_title="Classes",
         yaxis_title="Confidence",
-        template="plotly_white",
+        template="plotly_dark",
         height=400,
-        showlegend=False
+        showlegend=False,
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#f7fafc')
     )
     
     return fig
+
+
+
+
 
 # ==================== ENHANCED UPLOAD INTERFACE ====================
 st.markdown("### 📸 Image Upload & Analysis")
@@ -505,6 +512,8 @@ with col3:
     st.metric("📊 Confidence Range", f"{top5_values[-1]:.3f} - {top5_values[0]:.3f}")
 with col4:
     st.metric("🔍 Model", model_option.split()[0])
+
+
 
 # Target class selection with better UX
 st.markdown("#### 🎯 Select Target Class for Analysis")
